@@ -1,20 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TailwindProvider } from 'tailwindcss-react-native';
+import Home from './Screens/Home';
+import LoginScreen from './Screens/LoginScreen';
+import RegisterScreen from './Screens/RegisterScreen';
+import Addchat from './Screens/Addchat';
+import ChatScreen from './Screens/ChatScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+
+  const GlobalScreenOptions = {
+    headerStyle: { backgroundColor: '#F97100' },
+    headerTitleStyle: { color: 'white' },
+    headerTinColor: "white",
+    headerTitleAlign: 'center',
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaProvider>
+      <TailwindProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={GlobalScreenOptions}>
+            <Stack.Screen name='Login' component={LoginScreen} />
+            <Stack.Screen name='Register' component={RegisterScreen} />
+            <Stack.Screen name='Home' component={Home} />
+            <Stack.Screen name='addChat' component={Addchat} />
+            <Stack.Screen name='chatScreen' component={ChatScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </TailwindProvider>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

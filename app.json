@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "s-chat",
-    "slug": "s-chat",
-    "version": "1.0.0",
+    "name": "Schat",
+    "slug": "Schat",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/log.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F97100"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,8 +22,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/log.png",
+        "backgroundColor": "#F97100"
       }
     },
     "web": {
