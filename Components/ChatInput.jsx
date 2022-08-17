@@ -5,9 +5,10 @@ const ChatInput = ({ input, setinput, sendMessage }) => {
   return (
     <View className="flex-row w-full p-[15px] items-center">
       <TextInput
+        onSubmitEditing={sendMessage}
         className='bottom-0 h-10 flex-1 mr-4 border-transparent bg-slate-200 p-[9px] rounded-3xl'
         value={input}
-        onChange={(text) => setinput(text)}
+        onChangeText={(text) => setinput(text)}
         placeholder="Schat message"
       />
       <TouchableOpacity onPress={sendMessage}>

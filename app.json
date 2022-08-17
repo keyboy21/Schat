@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/log.png",
         "backgroundColor": "#F97100"
-      }
+      },
+      "package": "com.yusufwebdev.Schat"
     },
     "web": {
       "favicon": "./assets/favicon.png"

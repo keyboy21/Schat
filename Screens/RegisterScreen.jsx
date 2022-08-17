@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
+import * as Localization from 'expo-localization';
 import { Text, KeyboardAvoidingView } from "react-native";
 import RegisterForm from "../Components/RegisterForm";
 import { registerFirebase, updateUserProfile } from '../hooks/Firebase.hooks';
 
 const RegisterScreen = () => {
 
+  const [language, setlanguage] = useState('')
   const [fullName, setfullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [imageUrl, setimageUrl] = useState("");
 
-  const register = async () => {
+  useLayoutEffect(() => {
+    setlanguage(Localization.locale)
+  }, [])
 
+  const register = async () => {
     if (email && password && fullName) {
       registerFirebase(email, password)
         .then(() => {
@@ -21,7 +26,6 @@ const RegisterScreen = () => {
         .catch(err => { alert(err.message) })
     }
     else {
-
       alert("Please enter your email address, password and full name");
     }
 
@@ -30,7 +34,7 @@ const RegisterScreen = () => {
   return (
     <KeyboardAvoidingView behavior="padding">
       <Text className="mb-5 text-lg text-center mt-10">
-        Create a Schat account
+        {language === 'ru-RU' ? 'Создать учетную Schat' : 'Create a Schat account'}
       </Text>
       <RegisterForm
         fullName={fullName}

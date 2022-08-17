@@ -1,23 +1,27 @@
 import { useLayoutEffect, useState } from "react";
-import { Icon } from "@rneui/themed";
+import { Icon, Avatar } from "@rneui/themed";
 import {
   View,
   Text,
   TouchableOpacity,
   SafeAreaView,
   KeyboardAvoidingView,
-  ScrollView,
+  Keyboard,
+  TouchableWithoutFeedback
 } from "react-native";
 import ChatInput from "../Components/ChatInput";
+import { SendMessage, getChatMessages } from '../hooks/Firebase.hooks';
+import ChatMessages from "../Components/ChatMessages";
 
 const ChatScreen = ({ route, navigation }) => {
   const { id, chatName } = route.params;
   const [input, setinput] = useState('');
+  const [messages, setMessages] = useState([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitleAlign: "left",
-      title: `${chatName} chat`,
+      title: chatName,
       headerBackTitleVisible: false,
       headerRight: () => (
         <View className="flex-row space-x-10">
@@ -35,11 +39,17 @@ const ChatScreen = ({ route, navigation }) => {
         </View>
       ),
     });
-  }, [navigation]);
+  }, [navigation, messages]);
 
   const sendMessage = () => {
-    
+    Keyboard.dismiss();
+    SendMessage(input, id).catch((error) => alert(error.message));
+    setinput('')
   }
+
+  useLayoutEffect(() => {
+    getChatMessages(id, setMessages)
+  }, [route])
 
   return (
     <SafeAreaView className='flex-1'>
@@ -48,12 +58,12 @@ const ChatScreen = ({ route, navigation }) => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         keyboardVerticalOffset={80}
       >
-        <ScrollView>
-
-        </ScrollView>
-
-        <ChatInput input={input} setinput={setinput} sendMessage={sendMessage} />
-
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <>
+            <ChatMessages messages={messages} />
+            <ChatInput input={input} setinput={setinput} sendMessage={sendMessage} />
+          </>
+        </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

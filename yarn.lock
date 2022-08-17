@@ -1579,6 +1579,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo/code-signing-certificates@npm:0.0.1":
+  version: 0.0.1
+  resolution: "@expo/code-signing-certificates@npm:0.0.1"
+  dependencies:
+    node-forge: ^1.2.1
+    nullthrows: ^1.1.1
+  checksum: dbd5512fe3c829a523e4c0b31f09c775ceabdd2658f970cf7f85ec34a86ccbeb91588baad24bf38f2348f3b04e736e48becf4f5ef6d3ccbb5553dd4cdcff6fe7
+  languageName: node
+  linkType: hard
+
 "@expo/code-signing-certificates@npm:^0.0.2":
   version: 0.0.2
   resolution: "@expo/code-signing-certificates@npm:0.0.2"
@@ -5076,6 +5086,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-eas-client@npm:~0.2.0":
+  version: 0.2.1
+  resolution: "expo-eas-client@npm:0.2.1"
+  checksum: 551bd0f0bbd6bae1b62e02195266ea8102c43b3bf0b9123a88630f41de2030bdaf06348a8892fe042951042630ef222ac35ccec2e7dc707807f15e11f1e67386
+  languageName: node
+  linkType: hard
+
 "expo-error-recovery@npm:~3.1.0":
   version: 3.1.0
   resolution: "expo-error-recovery@npm:3.1.0"
@@ -5108,12 +5125,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-json-utils@npm:~0.3.0":
+  version: 0.3.0
+  resolution: "expo-json-utils@npm:0.3.0"
+  checksum: 1771fac8270c22e9203f3c3146608d7db5099613fc14afc36343788edf8bcfc3a7bc88cdf3e4e61d350196f903898f2a648ef14a1732a90668d4f06d8ee851e6
+  languageName: node
+  linkType: hard
+
 "expo-keep-awake@npm:~10.1.1":
   version: 10.1.1
   resolution: "expo-keep-awake@npm:10.1.1"
   peerDependencies:
     expo: "*"
   checksum: 7c7b54e7c721fa87e600142734fdc6c4c8814661767c9b5a4a1c0da1d41f33b5b214f2ccd5ee84e622bb5ff044123e383dd8230aff5a5ce644974a05a49d0e4b
+  languageName: node
+  linkType: hard
+
+"expo-localization@npm:~13.0.0":
+  version: 13.0.0
+  resolution: "expo-localization@npm:13.0.0"
+  dependencies:
+    rtl-detect: ^1.0.2
+  peerDependencies:
+    expo: "*"
+  checksum: 844ad044fc3b7d284666d5234c7a5a10f09a1eb27a6388f1b9398f79f0a20ffc404100d31212fba281e161c2f1ebdf2511da55463e885e158cd5d120e4fd9d20
+  languageName: node
+  linkType: hard
+
+"expo-manifests@npm:~0.3.0":
+  version: 0.3.1
+  resolution: "expo-manifests@npm:0.3.1"
+  dependencies:
+    expo-json-utils: ~0.3.0
+  checksum: 3873e01c5abbe8938680afd7e212fdc61f8619277f4e837f9501b8e536e6ee506f7627c3ae8f9c0ddf2c43d9507a464787770e78de6ced7881966bb36656735c
   languageName: node
   linkType: hard
 
@@ -5161,6 +5205,46 @@ __metadata:
   version: 1.3.0
   resolution: "expo-status-bar@npm:1.3.0"
   checksum: 2527cb11649a048ab02c4476195b4703dde604eca2fed31cfbc6dcb3697c8598e9b2b7b63fb44e42c5f8bcc013f632233df8d87479ca1979264117c11177f7ec
+  languageName: node
+  linkType: hard
+
+"expo-structured-headers@npm:~2.2.0":
+  version: 2.2.1
+  resolution: "expo-structured-headers@npm:2.2.1"
+  checksum: 633efd60c8f8a32ef3e5a3aecf73be1d83d19fc48e302b6cca7a40a9b268704f4e4c0c901d13987e3ad4ae1b435e178432760b858f07aa86f8d590e2d380323b
+  languageName: node
+  linkType: hard
+
+"expo-updates-interface@npm:~0.6.0":
+  version: 0.6.0
+  resolution: "expo-updates-interface@npm:0.6.0"
+  peerDependencies:
+    expo: "*"
+  checksum: fb0e4f8a2c551b73b77213553882bab185851a0831b5d358bcf149c8602593dbe761903f350b141d02f9e0f115ea378274c1a51db5e4335c9fca8e200a0942a4
+  languageName: node
+  linkType: hard
+
+"expo-updates@npm:~0.13.4":
+  version: 0.13.4
+  resolution: "expo-updates@npm:0.13.4"
+  dependencies:
+    "@expo/code-signing-certificates": 0.0.1
+    "@expo/config": ~6.0.23
+    "@expo/config-plugins": ^4.0.14
+    "@expo/metro-config": 0.3.19
+    arg: 4.1.0
+    expo-eas-client: ~0.2.0
+    expo-manifests: ~0.3.0
+    expo-structured-headers: ~2.2.0
+    expo-updates-interface: ~0.6.0
+    fbemitter: ^3.0.0
+    resolve-from: ^5.0.0
+    uuid: ^3.4.0
+  peerDependencies:
+    expo: "*"
+  bin:
+    expo-updates: bin/cli.js
+  checksum: 922186bd9af1002661639fa5323644b9ed2c20cb9a0ee48b6d199459eba33c476ef3e1406f293f219b5f2c1ebc065cdf13f71fd04a3e5e47664be33ebd4b473a
   languageName: node
   linkType: hard
 
@@ -9324,6 +9408,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rtl-detect@npm:^1.0.2":
+  version: 1.0.4
+  resolution: "rtl-detect@npm:1.0.4"
+  checksum: d562535baa0db62f57f0a1d4676297bff72fd6b94e88f0f0900d5c3e810ab512c5c4cadffd3e05fbe8d9c74310c919afa3ea8c1001c244e5555e8eef12d02d6f
+  languageName: node
+  linkType: hard
+
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
   resolution: "run-parallel@npm:1.2.0"
@@ -9344,7 +9435,9 @@ __metadata:
     "@rneui/base": ^4.0.0-rc.6
     "@rneui/themed": ^4.0.0-rc.6
     expo: ~45.0.0
+    expo-localization: ~13.0.0
     expo-status-bar: ~1.3.0
+    expo-updates: ~0.13.4
     firebase: ^9.9.2
     react: 17.0.2
     react-dom: 17.0.2

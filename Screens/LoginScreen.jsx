@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
+import * as Localization from 'expo-localization';
 import { View, Text, KeyboardAvoidingView, TouchableOpacity, TextInput, Image } from 'react-native';
 import { auth } from '../utils/firebase';
 import { SignIn } from '../hooks/Firebase.hooks';
@@ -7,6 +8,11 @@ const LoginScreen = ({ _, navigation }) => {
 
   const [email, setEmail] = useState('')
   const [password, setpassword] = useState('')
+  const [language, setlanguage] = useState('')
+
+  useLayoutEffect(() => {
+    setlanguage(Localization.locale)
+  }, [])
 
   useEffect(() => {
     const unscribe = auth.onAuthStateChanged((authUser) => {
@@ -52,10 +58,10 @@ const LoginScreen = ({ _, navigation }) => {
 
 
       <TouchableOpacity>
-        <Text onPress={Sign} className='text-lg  w-60 py-2 mt-10 text-center text-white bg-amber-600'>Login</Text>
+        <Text onPress={Sign} className='text-lg  w-60 py-2 mt-10 text-center text-white bg-amber-600'>{language === 'ru-RU' ? 'Войти' : "Sign In"}</Text>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Text onPress={() => navigation.navigate('Register')} className='py-2 w-60 text-center mt-4 text-lg border-2 border-amber-600  text-amber-600 '>Register</Text>
+        <Text onPress={() => navigation.navigate('Register')} className='py-2 w-60 text-center mt-4 text-lg border-2 border-amber-600  text-amber-600 '>{language === 'ru-RU' ? 'Регистрация' : "Register"}</Text>
       </TouchableOpacity>
 
     </KeyboardAvoidingView>
